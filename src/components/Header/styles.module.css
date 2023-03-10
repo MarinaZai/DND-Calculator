@@ -11,6 +11,7 @@
   background-color: #f3f4f6;
   border-radius: 6px;
   cursor: pointer;
+  margin-bottom: 34px;
 }
 
 input[type="radio"] {
