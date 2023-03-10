@@ -1,17 +1,13 @@
-import React, { useState } from "react";
-import { BlockValues } from "./BlockValues";
-import { Display } from "./Display";
-import { Equals } from "./Equals";
-import { Operators } from "./Operators";
+import React, { Fragment} from "react";
+import { DragItemData } from "../../../data/data";
 import styles from "./styles.module.css";
 
 export const СalculatorBlocks: React.FC = () => {
   return (
     <div className={styles.containerBlocks}>
-      <Display />
-      <Operators />
-      <BlockValues />
-      <Equals />
+      {DragItemData.map((item) => {
+        return <Fragment key={item.id}>{item.component}</Fragment>;
+      })}
     </div>
   );
 };
