@@ -7,7 +7,7 @@ export const Operators: React.FC = () => {
     <div className={styles.containerOperators}>
       <div className={styles.operators}>
         {OperatorsData.map((operator: any) => {
-          return <button className={styles.operator}>{operator.value}</button>;
+          return <button key={operator.id} className={styles.operator}>{operator.value}</button>;
         })}
       </div>
     </div>
