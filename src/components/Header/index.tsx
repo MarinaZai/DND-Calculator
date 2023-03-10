@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
         <AiOutlineEye />
         Runtime
       </label>
-      <input type="radio" name="radio" id="constructor" />
+      <input type="radio" name="radio" id="constructor" defaultChecked/>
       <label htmlFor="constructor">
         <FaAngleLeft />
         <FaAngleRight />
