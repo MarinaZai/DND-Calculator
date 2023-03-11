@@ -3,7 +3,7 @@ import { BlockValues } from "../components/Constructor/СalculatorBlocks/BlockVa
 import { Display } from "../components/Constructor/СalculatorBlocks/Display";
 import { Equals } from "../components/Constructor/СalculatorBlocks/Equals";
 import { Operators } from "../components/Constructor/СalculatorBlocks/Operators";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 export const OperatorsData = [
   { id: uuidv4(), value: "/" },
@@ -22,13 +22,11 @@ export const ValuesData = [
   { id: uuidv4(), value: 8 },
   { id: uuidv4(), value: 9 },
 ];
-export const DragItemData = [
+export const DragItemSource = [
   { id: uuidv4(), component: <Display /> },
   { id: uuidv4(), component: <Operators /> },
   { id: uuidv4(), component: <BlockValues /> },
   { id: uuidv4(), component: <Equals /> },
 ];
 
-
-
-
+export const DragItemDataDestination: typeof DragItemSource = [];
