@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./styles.module.css";
-
-export const Equals: React.FC = () => {
+type EqualsPropsType = {
+  isActive?: boolean;
+};
+export const Equals: React.FC<EqualsPropsType> = ({ isActive = false }) => {
   return (
-    <div className={styles.containerEquals}>
+    <div
+      className={
+        isActive ? styles.containerEqualsOpacity : styles.containerEquals
+      }
+    >
       <button className={styles.equals}>=</button>
     </div>
   );

@@ -2,6 +2,10 @@ import React from "react";
 import { EmptyArea } from "./EmptyArea";
 import styles from "./styles.module.css";
 import { Draggable } from "react-beautiful-dnd";
+import { Display } from "../СalculatorBlocks/Display";
+import { Operators } from "../СalculatorBlocks/Operators";
+import { BlockValues } from "../СalculatorBlocks/BlockValues";
+import { Equals } from "../СalculatorBlocks/Equals";
 
 type AssemblyAreaPropsType = {
   dragItemDataDestination: Array<any>
@@ -13,6 +17,20 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({dragItemDataDesti
       (distElem) => distElem.name === sourceName
     );
     return !!result;
+  };
+  const getCalculatorPart = (item: any, isActive: boolean) => {
+    switch (item.name) {
+      case "display":
+        return <Display isActive={isActive} />;
+      case "operators":
+        return <Operators />;
+      case "blockValues":
+        return <BlockValues />;
+      case "equals":
+        return <Equals />;
+      default:
+        return <div></div>;
+    }
   };
   return (
     <div className={styles.containerAssembly}>
@@ -34,7 +52,7 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({dragItemDataDesti
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
                 >
-                  {item.component}
+                  {getCalculatorPart(item, false)}
                 </div>
               )}
             </Draggable>

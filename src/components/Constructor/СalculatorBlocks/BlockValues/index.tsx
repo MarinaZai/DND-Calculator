@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { OperatorsData, ValuesData } from "../../../../data/data";
+import React from "react";
+import { ValuesData } from "../../../../data/data";
 import styles from "./styles.module.css";
-
-export const BlockValues: React.FC = () => {
+type BlockValuesPropsType = {
+  isActive?: boolean;
+}
+export const BlockValues: React.FC<BlockValuesPropsType> = ({isActive = false}) => {
   return (
-    <div className={styles.containerValues}>
+    <div className={isActive ?styles.containerValuesOpacity :styles.containerValues}>
       <div className={styles.values}>
         {ValuesData.map((value: any) => {
           return <button key={value.id} className={styles.value}>{value.value}</button>;

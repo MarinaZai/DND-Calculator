@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./styles.module.css";
 
-export const Display: React.FC = () => {
+type DisplayPropsType = {
+  isActive?: boolean;
+}
+
+export const Display: React.FC<DisplayPropsType> = ({isActive = false}) => {
   return (
-    <div className={styles.containerDisplay}>
+    <div className={isActive ? styles.containerDisplayOpacity : styles.containerDisplay}>
       <div className={styles.display}><span>0</span></div>
     </div>
   );

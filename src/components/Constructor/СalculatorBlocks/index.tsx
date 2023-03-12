@@ -1,10 +1,28 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { Draggable, DroppableProvidedProps } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
+import { Display } from "./Display";
+import { Operators } from "./Operators";
+import { BlockValues } from "./BlockValues";
+import { Equals } from "./Equals";
 
 type СalculatorBlocksPropsType = {
   dragItemSource: Array<any>;
   dragItemDataDestination: Array<any>;
+};
+const getCalculatorPart = (item: any, isActive: boolean) => {
+  switch (item.name) {
+    case "display":
+      return <Display isActive={isActive} />;
+    case "operators":
+      return <Operators isActive={isActive}/>;
+    case "blockValues":
+      return <BlockValues isActive={isActive}/>;
+    case "equals":
+      return <Equals isActive={isActive}/>;
+    default:
+      return <div></div>;
+  }
 };
 
 export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
@@ -17,6 +35,7 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
     );
     return !!result;
   };
+
   return (
     <div className={styles.containerBlocks}>
       {dragItemSource.map((item, index) => {
@@ -35,11 +54,11 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-          /*         //style={{opacity:  isDisabled === true ? 0.5 : 1 }} */
+                  /*         //style={{opacity:  isDisabled === true ? 0.5 : 1 }} */
                 >
-                  {item.component}
+                  {getCalculatorPart(item, isDisabled)}
                 </div>
-                {snapshot.isDragging && <div >{item.component}</div>}
+                {snapshot.isDragging && <div>{getCalculatorPart(item, isDisabled)}</div>}
               </div>
             )}
           </Draggable>
