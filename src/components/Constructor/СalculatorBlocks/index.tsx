@@ -57,8 +57,9 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
                 >
                   {getCalculatorPart(item, isDisabled)}
                 </div>
+                
                 {snapshot.isDragging && (
-                  <div>{getCalculatorPart(item, isDisabled)}</div>
+                  <>{getCalculatorPart(item, isDisabled)}</>
                 )}
               </div>
             )}

@@ -11,12 +11,7 @@ type DisplayPropsType = {
 export const Display: React.FC<DisplayPropsType> = ({
   isActive = false,
   displayValue = 0,
-  isConstructorVisible,
-  setDisplayValue,
 }) => {
-  if (isConstructorVisible && setDisplayValue) {
-    setDisplayValue(0);
-  }
   return (
     <div
       className={

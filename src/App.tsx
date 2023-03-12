@@ -14,7 +14,6 @@ function App() {
   const [displayValue, setDisplayValue] = useState(0);
   const [operator, setOperator] = useState("");
   const [savedDisplayValue, setSavedDisplayValue] = useState(0);
-  
   const saveData = (selectedOperator: string) => {
     setSavedDisplayValue(displayValue);
     setOperator(selectedOperator);
@@ -73,7 +72,14 @@ function App() {
     );
     setDragItemDataDestination((prev) => [...prev, ...(clonedItem as any)]);
   };
-
+  useEffect(() => {
+    if (isConstructorVisible && setDisplayValue) {
+      setDisplayValue(0);
+    }
+    if (displayValue.toString().length > 13) {
+      return setDisplayValue(0);
+    }
+  });
   return (
     <div className="App">
       <DragDropContext onDragEnd={onDragEnd}>
