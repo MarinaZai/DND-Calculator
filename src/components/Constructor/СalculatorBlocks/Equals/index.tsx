@@ -18,7 +18,7 @@ export const Equals: React.FC<EqualsPropsType> = ({
         isActive ? styles.containerEqualsOpacity : styles.containerEquals
       }
     >
-      <button
+      <div
         className={styles.equals}
         onClick={(e) =>
           !isConstructorVisible && dragItemDataDestination && doMath
@@ -27,7 +27,7 @@ export const Equals: React.FC<EqualsPropsType> = ({
         }
       >
         =
-      </button>
+      </div>
     </div>
   );
 };

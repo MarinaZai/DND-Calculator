@@ -28,6 +28,9 @@
   gap: 8px;
 }
 .value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 72px;
   height: 48px;
   background: #ffffff;
@@ -39,21 +42,25 @@
   font-size: 14px;
   line-height: 15px;
   color: #000000;
-  cursor: pointer;
 }
 .zeroAndComma {
   display: flex;
   gap: 8px;
 }
 .zero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 152px;
   height: 48px;
   background: #ffffff;
   border: 1px solid #e2e3e5;
   border-radius: 6px;
-  cursor: pointer;
 }
 .comma {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 72px;
   height: 48px;
   background: #ffffff;
@@ -65,5 +72,4 @@
   font-size: 14px;
   line-height: 15px;
   color: #000000;
-  cursor: pointer;
 }

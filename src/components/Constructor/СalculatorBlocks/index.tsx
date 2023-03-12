@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { Draggable } from "react-beautiful-dnd";
+import { Draggable, DraggableProvidedDragHandleProps } from "react-beautiful-dnd";
 import { Display } from "./Display";
 import { Operators } from "./Operators";
 import { BlockValues } from "./BlockValues";

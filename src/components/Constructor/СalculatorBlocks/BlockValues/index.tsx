@@ -22,7 +22,7 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
       <div className={styles.values}>
         {ValuesData.map((value: any) => {
           return (
-            <button
+            <div
               key={value.id}
               className={styles.value}
               onClick={(e) =>
@@ -32,12 +32,12 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
               }
             >
               {value.value}
-            </button>
+            </div>
           );
         })}
       </div>
       <div className={styles.zeroAndComma}>
-        <button
+        <div
           className={styles.zero}
           onClick={(e) =>
             !isConstructorVisible && dragItemDataDestination
@@ -46,8 +46,8 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
           }
         >
           0
-        </button>
-        <button
+        </div>
+        <div
           className={styles.comma}
           onClick={(e) =>
             !isConstructorVisible && dragItemDataDestination
@@ -56,7 +56,7 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
           }
         >
           ,
-        </button>
+        </div>
       </div>
     </div>
   );

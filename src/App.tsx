@@ -82,7 +82,10 @@ function App() {
   });
   return (
     <div className="App">
-      <DragDropContext onDragEnd={onDragEnd}>
+      <DragDropContext 
+      onDragEnd={onDragEnd}
+      onDragStart={console.log}
+      >
         <Calculator
           dragItemSource={dragItemSource}
           dragItemDataDestination={dragItemDataDestination}

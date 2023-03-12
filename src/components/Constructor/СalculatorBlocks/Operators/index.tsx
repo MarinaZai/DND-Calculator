@@ -22,7 +22,7 @@ export const Operators: React.FC<OperatorsPropsType> = ({
       <div className={styles.operators}>
         {OperatorsData.map((operator: any) => {
           return (
-            <button
+            <div
               key={operator.id}
               className={styles.operator}
               onClick={(e) =>
@@ -32,7 +32,7 @@ export const Operators: React.FC<OperatorsPropsType> = ({
               }
             >
               {operator.value}
-            </button>
+            </div>
           );
         })}
       </div>

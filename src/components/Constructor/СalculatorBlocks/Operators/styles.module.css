@@ -23,6 +23,9 @@
   gap: 8px;
 }
 .operator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 52px;
   height: 48px;
   background: #ffffff;

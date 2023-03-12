@@ -21,6 +21,9 @@
   opacity: 0.5;
 }
 .equals {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 232px;
   height: 64px;
   background: #5d5fef;
