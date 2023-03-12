@@ -12,6 +12,7 @@ type СalculatorBlocksPropsType = {
   saveData: (operator: string) => void;
   doMath: () => void;
   removeAddedItem: (index:any)=>void
+  updateDisplayValue:(value: number)=>void
 };
 export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
   dragItemSource,
@@ -22,7 +23,8 @@ export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
   setDisplayValue,
   saveData,
   doMath,
-  removeAddedItem
+  removeAddedItem,
+  updateDisplayValue
 }) => {
   return (
     <div className={styles.calculator}>
@@ -40,6 +42,7 @@ export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
         saveData={saveData}
         doMath={doMath}
         removeAddedItem={removeAddedItem}
+        updateDisplayValue={updateDisplayValue}
       />
     </div>
   );

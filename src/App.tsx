@@ -14,10 +14,21 @@ function App() {
   const [displayValue, setDisplayValue] = useState(0);
   const [operator, setOperator] = useState("");
   const [savedDisplayValue, setSavedDisplayValue] = useState(0);
+
   const saveData = (selectedOperator: string) => {
     setSavedDisplayValue(displayValue);
     setOperator(selectedOperator);
     setDisplayValue(0);
+  };
+
+  const updateDisplayValue = (value: number) => {
+    console.log(displayValue)
+    if (displayValue.toString().length > 11) {
+      return
+    } else {
+      console.log('dddd')
+      setDisplayValue((prev) => Number("" + (prev || "") + value));
+    }
   };
 
   const doMath = () => {
@@ -52,9 +63,12 @@ function App() {
     return destClone;
   };
 
-  function removeAddedItem(index:any) {
-    setDragItemDataDestination([...dragItemDataDestination.slice(0, index), ...dragItemDataDestination.slice(index + 1)]);
- }
+  function removeAddedItem(index: any) {
+    setDragItemDataDestination([
+      ...dragItemDataDestination.slice(0, index),
+      ...dragItemDataDestination.slice(index + 1),
+    ]);
+  }
 
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
@@ -80,16 +94,10 @@ function App() {
     if (isConstructorVisible && setDisplayValue) {
       setDisplayValue(0);
     }
-    if (displayValue.toString().length > 13) {
-      return setDisplayValue(0);
-    }
   });
   return (
     <div className="App">
-      <DragDropContext 
-      onDragEnd={onDragEnd}
-      onDragStart={console.log}
-      >
+      <DragDropContext onDragEnd={onDragEnd} onDragStart={console.log}>
         <Calculator
           dragItemSource={dragItemSource}
           dragItemDataDestination={dragItemDataDestination}
@@ -100,6 +108,7 @@ function App() {
           saveData={saveData}
           doMath={doMath}
           removeAddedItem={removeAddedItem}
+          updateDisplayValue={updateDisplayValue}
         />
       </DragDropContext>
     </div>

@@ -15,6 +15,7 @@ type AssemblyAreaPropsType = {
   saveData: (operator: string) => void;
   doMath: () => void;
   removeAddedItem: (index: any) => void;
+  updateDisplayValue:(value: number)=>void
 };
 
 export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
@@ -25,6 +26,7 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
   saveData,
   doMath,
   removeAddedItem,
+  updateDisplayValue
 }) => {
   const isDisable = (sourceName: string) => {
     const result = dragItemDataDestination.find(
@@ -57,6 +59,7 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
             isConstructorVisible={isConstructorVisible}
             dragItemDataDestination={dragItemDataDestination}
             setDisplayValue={setDisplayValue}
+            updateDisplayValue={updateDisplayValue}
           />
         );
       case "equals":
@@ -87,7 +90,7 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
             >
               {(provided, snapshot) => (
                 <div
-                  onDoubleClick={() => removeAddedItem(index)}
+                  onDoubleClick={() => isConstructorVisible ? removeAddedItem(index): ''}
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}

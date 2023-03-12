@@ -6,12 +6,14 @@ type BlockValuesPropsType = {
   isConstructorVisible?: boolean;
   dragItemDataDestination?: any;
   setDisplayValue: React.Dispatch<React.SetStateAction<number>>
+  updateDisplayValue?:(value: number)=>void
 };
 export const BlockValues: React.FC<BlockValuesPropsType> = ({
   isActive = false,
   isConstructorVisible,
   dragItemDataDestination,
-  setDisplayValue
+  setDisplayValue,
+  updateDisplayValue
 }) => {
   return (
     <div
@@ -26,9 +28,9 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
               key={value.id}
               className={isConstructorVisible ? styles.value : styles.valuePointer}
               onClick={(e) =>
-                !isConstructorVisible && dragItemDataDestination
-                  ? setDisplayValue((prev) => Number('' + (prev || "") + value.value))
-                  : console.log("ffff")
+                !isConstructorVisible && dragItemDataDestination && updateDisplayValue
+                  ? updateDisplayValue(value.value)
+                  : ''
               }
             >
               {value.value}
@@ -40,8 +42,8 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
         <div
           className={isConstructorVisible ? styles.zero : styles.zeroPointer}
           onClick={(e) =>
-            !isConstructorVisible && dragItemDataDestination
-              ? setDisplayValue((prev) => Number('' + (prev || "") + 0))
+            !isConstructorVisible && dragItemDataDestination && updateDisplayValue
+              ? updateDisplayValue(0)
               : console.log("ffff")
           }
         >
