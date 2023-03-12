@@ -1,0 +1,7 @@
+.containerBlocks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 243px;
+  height: 448px;
+}

@@ -1,0 +1,63 @@
+@import url("https://fonts.google.com/share?selection.family=Inter:wght@400;500;600;700;800");
+.containerOperators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  cursor: move
+}
+.containerOperatorsOpacity{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+.operators {
+  display: flex;
+  gap: 8px;
+}
+.operator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #e2e3e5;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: #000000;
+}
+.operatorPointer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #e2e3e5;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: #000000;
+  cursor: pointer; 
+}
+.operatorPointer:active {
+  border: 2px solid #5d5fef;
+}

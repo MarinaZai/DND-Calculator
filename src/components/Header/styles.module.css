@@ -1,0 +1,50 @@
+@import url("https://fonts.google.com/share?selection.family=Inter:wght@400;500;600;700;800");
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 243px;
+  height: 38px;
+  padding: 1px;
+  background-color: #f3f4f6;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 34px;
+}
+
+input[type="radio"] {
+  appearance: none;
+  display: none;
+  cursor: pointer;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 145px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: #4d5562;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type="radio"]:checked + label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 108px;
+  height: 36px;
+  background: #ffffff;
+  border: 1px solid #e2e3e5;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
