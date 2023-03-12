@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import "./App.css";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { Calculator } from "./components/Calculator";
@@ -7,22 +7,26 @@ import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [dragItemSource, setDragItemSource] = useState(DragItemSource);
-  const [dragItemDataDestination, setDragItemDataDestination] = useState(DragItemDataDestination);
+  const [dragItemDataDestination, setDragItemDataDestination] = useState(
+    DragItemDataDestination
+  );
+  const [isConstructorVisible, setIsConstructorVisible] = useState(true);
 
-  const copy = (source: any, destination: any, droppableSource: any, droppableDestination: any) => {
-    console.log('==> dest', destination);
-
+  const copy = (
+    source: any,
+    destination: any,
+    droppableSource: any,
+    droppableDestination: any
+  ) => {
     const sourceClone = Array.from(source);
     const destClone = Array.from(destination);
     const item = sourceClone[droppableSource.index] as Object;
-
     destClone.splice(droppableDestination.index, 0, { ...item, id: uuidv4() });
     return destClone;
-};
+  };
 
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
-    console.log(result);
     if (!destination) {
       return;
     }
@@ -33,27 +37,24 @@ function App() {
     ) {
       return;
     }
-    const clonedItem = copy(DragItemSource, DragItemDataDestination, source, destination)
-    setDragItemDataDestination(prev => [...prev, ...clonedItem as any])
-
-   /* if (destination.droppableId === "droppable-2") {
-      for (let i = 0; i <= DragItemSource.length; i++) {
-        if (DragItemSource[i].id === result.draggableId)
-          return DragItemDataDestination.push({...DragItemSource[i]});
-      }
-    }
-    if (destination.droppableId === "droppable-1") {
-      for (let i = 0; i <= DragItemSource.length; i++) {
-        if (DragItemSource[i].id === result.draggableId) {
-          console.log('ffff')
-        }
-      }
-    } */
+    const clonedItem = copy(
+      DragItemSource,
+      DragItemDataDestination,
+      source,
+      destination
+    );
+    setDragItemDataDestination((prev) => [...prev, ...(clonedItem as any)]);
   };
+
   return (
     <div className="App">
       <DragDropContext onDragEnd={onDragEnd}>
-        <Calculator dragItemSource={dragItemSource} dragItemDataDestination={dragItemDataDestination} />
+        <Calculator
+          dragItemSource={dragItemSource}
+          dragItemDataDestination={dragItemDataDestination}
+          isConstructorVisible={isConstructorVisible}
+          setIsConstructorVisible={setIsConstructorVisible}
+        />
       </DragDropContext>
     </div>
   );

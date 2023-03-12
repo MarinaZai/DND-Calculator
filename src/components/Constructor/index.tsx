@@ -6,14 +6,16 @@ import { Droppable } from "react-beautiful-dnd";
 type СalculatorBlocksPropsType = {
   dragItemSource: Array<any>;
   dragItemDataDestination: Array<any>;
+  isConstructorVisible: boolean;
 };
 export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
   dragItemSource,
   dragItemDataDestination,
+  isConstructorVisible,
 }) => {
   return (
     <div className={styles.containerConstructor}>
-      <Droppable droppableId="droppable-1" isDropDisabled={true}>
+      {isConstructorVisible && <Droppable droppableId="droppable-1" isDropDisabled={true}>
         {(provided, snapshot) => (
           <div 
           ref={provided.innerRef} 
@@ -24,7 +26,7 @@ export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
             {provided.placeholder}
           </div>
         )}
-      </Droppable>
+      </Droppable>}
       <Droppable droppableId="droppable-2">
         {(provided, snapshot) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
