@@ -18,6 +18,7 @@ export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
           <div 
           ref={provided.innerRef} 
           {...provided.droppableProps}
+        
           >
             <СalculatorBlocks dragItemSource={dragItemSource} dragItemDataDestination={dragItemDataDestination} />
             {provided.placeholder}

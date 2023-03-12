@@ -35,10 +35,11 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
+                  //style={{opacity:  isDisabled === true ? 0.5 : 1 }}
                 >
                   {item.component}
                 </div>
-                {snapshot.isDragging && <div>{item.component}</div>}
+                {snapshot.isDragging && <div >{item.component}</div>}
               </div>
             )}
           </Draggable>

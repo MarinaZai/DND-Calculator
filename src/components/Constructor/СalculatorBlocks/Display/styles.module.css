@@ -1,3 +1,4 @@
+@import url("https://fonts.google.com/share?selection.family=Inter:wght@400;500;600;700;800");
 .containerDisplay {
   display: flex;
   align-items: center;
@@ -9,8 +10,20 @@
   cursor: pointer;
 }
 .display {
+  display: flex;
+  align-items: center;
+  justify-content: end;
   width: 232px;
   height: 52px;
   background: #f3f4f6;
   border-radius: 6px;
+}
+.display span{
+  padding-right: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  color: #111827;
 }
