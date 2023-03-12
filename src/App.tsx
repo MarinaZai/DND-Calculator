@@ -11,6 +11,8 @@ function App() {
     DragItemDataDestination
   );
   const [isConstructorVisible, setIsConstructorVisible] = useState(true);
+  const [displayValue, setDisplayValue] = useState(0);
+
 
   const copy = (
     source: any,
@@ -54,6 +56,8 @@ function App() {
           dragItemDataDestination={dragItemDataDestination}
           isConstructorVisible={isConstructorVisible}
           setIsConstructorVisible={setIsConstructorVisible}
+          displayValue={displayValue}
+          setDisplayValue={setDisplayValue}
         />
       </DragDropContext>
     </div>

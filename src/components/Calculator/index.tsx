@@ -6,13 +6,31 @@ type СalculatorBlocksPropsType = {
   dragItemSource: Array<any>;
   dragItemDataDestination: Array<any>;
   isConstructorVisible: boolean;
-  setIsConstructorVisible:(isConstructorVisible:boolean)=>void
+  setIsConstructorVisible: (isConstructorVisible: boolean) => void;
+  displayValue: number;
+  setDisplayValue: React.Dispatch<React.SetStateAction<number>>
 };
-export const Calculator: React.FC<СalculatorBlocksPropsType> = ({dragItemSource, dragItemDataDestination, isConstructorVisible,setIsConstructorVisible}) => {
+export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
+  dragItemSource,
+  dragItemDataDestination,
+  isConstructorVisible,
+  setIsConstructorVisible,
+  displayValue,
+  setDisplayValue
+}) => {
   return (
     <div className={styles.calculator}>
-      <Header dragItemDataDestination={dragItemDataDestination} setIsConstructorVisible={setIsConstructorVisible}/>
-      <Constructor dragItemSource={dragItemSource} dragItemDataDestination={dragItemDataDestination} isConstructorVisible={isConstructorVisible}/>
+      <Header
+        dragItemDataDestination={dragItemDataDestination}
+        setIsConstructorVisible={setIsConstructorVisible}
+      />
+      <Constructor
+        dragItemSource={dragItemSource}
+        dragItemDataDestination={dragItemDataDestination}
+        isConstructorVisible={isConstructorVisible}
+        displayValue={displayValue}
+        setDisplayValue={setDisplayValue}
+      />
     </div>
   );
 };

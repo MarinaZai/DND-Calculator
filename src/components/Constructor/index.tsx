@@ -7,30 +7,40 @@ type СalculatorBlocksPropsType = {
   dragItemSource: Array<any>;
   dragItemDataDestination: Array<any>;
   isConstructorVisible: boolean;
+  displayValue: number;
+  setDisplayValue: React.Dispatch<React.SetStateAction<number>>;
 };
 export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
   dragItemSource,
   dragItemDataDestination,
   isConstructorVisible,
+  displayValue,
+  setDisplayValue,
 }) => {
   return (
     <div className={styles.containerConstructor}>
-      {isConstructorVisible && <Droppable droppableId="droppable-1" isDropDisabled={true}>
-        {(provided, snapshot) => (
-          <div 
-          ref={provided.innerRef} 
-          {...provided.droppableProps}
-        
-          >
-            <СalculatorBlocks dragItemSource={dragItemSource} dragItemDataDestination={dragItemDataDestination} />
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>}
+      {isConstructorVisible && (
+        <Droppable droppableId="droppable-1" isDropDisabled={true}>
+          {(provided, snapshot) => (
+            <div ref={provided.innerRef} {...provided.droppableProps}>
+              <СalculatorBlocks
+                dragItemSource={dragItemSource}
+                dragItemDataDestination={dragItemDataDestination}
+              />
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      )}
       <Droppable droppableId="droppable-2">
         {(provided, snapshot) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
-            <AssemblyArea dragItemDataDestination={dragItemDataDestination} />
+            <AssemblyArea
+              dragItemDataDestination={dragItemDataDestination}
+              isConstructorVisible={isConstructorVisible}
+              displayValue={displayValue}
+              setDisplayValue={setDisplayValue}
+            />
             {provided.placeholder}
           </div>
         )}

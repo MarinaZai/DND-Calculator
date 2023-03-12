@@ -8,26 +8,46 @@ import { BlockValues } from "../СalculatorBlocks/BlockValues";
 import { Equals } from "../СalculatorBlocks/Equals";
 
 type AssemblyAreaPropsType = {
-  dragItemDataDestination: Array<any>
-}
+  dragItemDataDestination: Array<any>;
+  isConstructorVisible: boolean;
+  displayValue: number;
+  setDisplayValue: React.Dispatch<React.SetStateAction<number>>;
+};
 
-export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({dragItemDataDestination}) => {
+export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
+  dragItemDataDestination,
+  isConstructorVisible,
+  displayValue,
+  setDisplayValue
+}) => {
   const isDisable = (sourceName: string) => {
     const result = dragItemDataDestination.find(
       (distElem) => distElem.name === sourceName
     );
     return !!result;
   };
-  const getCalculatorPart = (item: any, isActive: boolean) => {
+  const getCalculatorPart = (item: any, isConstructorVi: boolean) => {
     switch (item.name) {
       case "display":
-        return <Display isActive={isActive} />;
+        return <Display displayValue={displayValue} isConstructorVisible={isConstructorVisible}/>;
       case "operators":
-        return <Operators />;
+        return (
+          <Operators
+            isConstructorVisible={isConstructorVisible}
+            dragItemDataDestination={dragItemDataDestination}
+          />
+        );
       case "blockValues":
-        return <BlockValues />;
+        return (
+          <BlockValues
+            isConstructorVisible={isConstructorVisible}
+            dragItemDataDestination={dragItemDataDestination}
+            setDisplayValue={setDisplayValue}
+            
+          />
+        );
       case "equals":
-        return <Equals />;
+        return <Equals isConstructorVisible={isConstructorVisible} />;
       default:
         return <div></div>;
     }

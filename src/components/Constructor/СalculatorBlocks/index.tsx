@@ -13,11 +13,11 @@ type СalculatorBlocksPropsType = {
 const getCalculatorPart = (item: any, isActive: boolean) => {
   switch (item.name) {
     case "display":
-      return <Display isActive={isActive} />;
+      return <Display isActive={isActive} displayValue={0} />;
     case "operators":
       return <Operators isActive={isActive}/>;
     case "blockValues":
-      return <BlockValues isActive={isActive}/>;
+      return <BlockValues isActive={isActive} setDisplayValue={() => {}} />;
     case "equals":
       return <Equals isActive={isActive}/>;
     default:
@@ -54,7 +54,6 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  /*         //style={{opacity:  isDisabled === true ? 0.5 : 1 }} */
                 >
                   {getCalculatorPart(item, isDisabled)}
                 </div>
