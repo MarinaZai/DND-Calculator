@@ -29,7 +29,7 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
   const getCalculatorPart = (item: any, isConstructorVi: boolean) => {
     switch (item.name) {
       case "display":
-        return <Display displayValue={displayValue} isConstructorVisible={isConstructorVisible}/>;
+        return <Display displayValue={displayValue} setDisplayValue={setDisplayValue} isConstructorVisible={isConstructorVisible}/>;
       case "operators":
         return (
           <Operators

@@ -10,7 +10,6 @@ export const Equals: React.FC<EqualsPropsType> = ({
   isConstructorVisible,
   dragItemDataDestination,
 }) => {
-  console.log(isConstructorVisible,dragItemDataDestination)
   return (
     <div
       className={
