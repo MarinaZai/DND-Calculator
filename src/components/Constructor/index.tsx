@@ -11,6 +11,7 @@ type СalculatorBlocksPropsType = {
   setDisplayValue: React.Dispatch<React.SetStateAction<number>>;
   saveData: (operator: string) => void;
   doMath:()=>void
+  removeAddedItem: (index:any)=>void
 };
 export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
   dragItemSource,
@@ -19,7 +20,8 @@ export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
   displayValue,
   setDisplayValue,
   saveData,
-  doMath
+  doMath,
+  removeAddedItem
 }) => {
   return (
     <div className={styles.containerConstructor}>
@@ -47,6 +49,7 @@ export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
               setDisplayValue={setDisplayValue}
               saveData={saveData}
               doMath={doMath}
+              removeAddedItem={removeAddedItem}
             />
             {provided.placeholder}
           </div>

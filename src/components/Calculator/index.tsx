@@ -11,6 +11,7 @@ type СalculatorBlocksPropsType = {
   setDisplayValue: React.Dispatch<React.SetStateAction<number>>;
   saveData: (operator: string) => void;
   doMath: () => void;
+  removeAddedItem: (index:any)=>void
 };
 export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
   dragItemSource,
@@ -21,6 +22,7 @@ export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
   setDisplayValue,
   saveData,
   doMath,
+  removeAddedItem
 }) => {
   return (
     <div className={styles.calculator}>
@@ -37,6 +39,7 @@ export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
         setDisplayValue={setDisplayValue}
         saveData={saveData}
         doMath={doMath}
+        removeAddedItem={removeAddedItem}
       />
     </div>
   );

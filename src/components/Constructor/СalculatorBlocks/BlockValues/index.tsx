@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ValuesData } from "../../../../data/data";
 import styles from "./styles.module.css";
 type BlockValuesPropsType = {

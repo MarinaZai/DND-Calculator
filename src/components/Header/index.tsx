@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./styles.module.css";
 import { AiOutlineEye } from "react-icons/ai";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
@@ -41,16 +41,18 @@ export const Header: React.FC<HeaderPropsType> = ({
         }}
       />
       <label htmlFor="constructor">
-        {isConstructorVisible ? (
-          <FaAngleLeft color="#5D5FEF" />
-        ) : (
-          <FaAngleLeft />
-        )}
-        {isConstructorVisible ? (
-          <FaAngleRight color="#5D5FEF" />
-        ) : (
-          <FaAngleRight />
-        )}
+        <div>
+          {isConstructorVisible ? (
+            <FaAngleLeft color="#5D5FEF" />
+          ) : (
+            <FaAngleLeft />
+          )}
+          {isConstructorVisible ? (
+            <FaAngleRight color="#5D5FEF" />
+          ) : (
+            <FaAngleRight />
+          )}
+        </div>
         Constructor
       </label>
     </div>

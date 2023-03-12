@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { Calculator } from "./components/Calculator";
@@ -52,6 +52,10 @@ function App() {
     return destClone;
   };
 
+  function removeAddedItem(index:any) {
+    setDragItemDataDestination([...dragItemDataDestination.slice(0, index), ...dragItemDataDestination.slice(index + 1)]);
+ }
+
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
     if (!destination) {
@@ -95,6 +99,7 @@ function App() {
           setDisplayValue={setDisplayValue}
           saveData={saveData}
           doMath={doMath}
+          removeAddedItem={removeAddedItem}
         />
       </DragDropContext>
     </div>

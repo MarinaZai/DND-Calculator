@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./styles.module.css";
 import {
   Draggable,
-  DraggableProvidedDragHandleProps,
 } from "react-beautiful-dnd";
 import { Display } from "./Display";
 import { Operators } from "./Operators";

@@ -13,7 +13,8 @@ type AssemblyAreaPropsType = {
   displayValue: number;
   setDisplayValue: React.Dispatch<React.SetStateAction<number>>;
   saveData: (operator: string) => void;
-  doMath:()=>void
+  doMath: () => void;
+  removeAddedItem: (index: any) => void;
 };
 
 export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
@@ -22,7 +23,8 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
   displayValue,
   setDisplayValue,
   saveData,
-  doMath
+  doMath,
+  removeAddedItem,
 }) => {
   const isDisable = (sourceName: string) => {
     const result = dragItemDataDestination.find(
@@ -30,6 +32,7 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
     );
     return !!result;
   };
+
   const getCalculatorPart = (item: any, isConstructorVi: boolean) => {
     switch (item.name) {
       case "display":
@@ -84,6 +87,7 @@ export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({
             >
               {(provided, snapshot) => (
                 <div
+                  onDoubleClick={() => removeAddedItem(index)}
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
