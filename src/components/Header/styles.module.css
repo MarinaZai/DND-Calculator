@@ -24,6 +24,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   width: 145px;
   font-family: "Inter";
   font-style: normal;

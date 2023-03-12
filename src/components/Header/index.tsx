@@ -5,10 +5,12 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 type HeaderPropsType = {
   dragItemDataDestination: Array<any>;
+  isConstructorVisible: boolean;
   setIsConstructorVisible: (isConstructorVisible: boolean) => void;
 };
 
 export const Header: React.FC<HeaderPropsType> = ({
+  isConstructorVisible,
   setIsConstructorVisible,
 }) => {
   return (
@@ -22,7 +24,11 @@ export const Header: React.FC<HeaderPropsType> = ({
         }}
       />
       <label htmlFor="runtime">
-        <AiOutlineEye />
+        {isConstructorVisible ? (
+          <AiOutlineEye />
+        ) : (
+          <AiOutlineEye color="#5D5FEF" />
+        )}
         Runtime
       </label>
       <input
@@ -35,8 +41,16 @@ export const Header: React.FC<HeaderPropsType> = ({
         }}
       />
       <label htmlFor="constructor">
-        <FaAngleLeft />
-        <FaAngleRight />
+        {isConstructorVisible ? (
+          <FaAngleLeft color="#5D5FEF" />
+        ) : (
+          <FaAngleLeft />
+        )}
+        {isConstructorVisible ? (
+          <FaAngleRight color="#5D5FEF" />
+        ) : (
+          <FaAngleRight />
+        )}
         Constructor
       </label>
     </div>

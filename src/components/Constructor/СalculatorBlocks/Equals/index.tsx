@@ -19,11 +19,11 @@ export const Equals: React.FC<EqualsPropsType> = ({
       }
     >
       <div
-        className={styles.equals}
+        className={isConstructorVisible ? styles.equals : styles.equalsPointer}
         onClick={(e) =>
           !isConstructorVisible && dragItemDataDestination && doMath
             ? doMath()
-            : console.log("ffff")
+            : ''
         }
       >
         =

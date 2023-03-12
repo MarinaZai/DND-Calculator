@@ -19,7 +19,7 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
         isActive ? styles.containerValuesOpacity : styles.containerValues
       }
     >
-      <div className={styles.values}>
+      <div className={isConstructorVisible ? styles.values : styles.valuesPointer}>
         {ValuesData.map((value: any) => {
           return (
             <div
@@ -52,7 +52,7 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
           onClick={(e) =>
             !isConstructorVisible && dragItemDataDestination
               ? setDisplayValue((prev) => Number('' + (prev || "") + ''))
-              : console.log("ffff")
+              : ''
           }
         >
           ,
