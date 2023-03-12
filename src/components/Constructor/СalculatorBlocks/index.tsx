@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { Draggable, DraggableProvidedDragHandleProps } from "react-beautiful-dnd";
+import {
+  Draggable,
+  DraggableProvidedDragHandleProps,
+} from "react-beautiful-dnd";
 import { Display } from "./Display";
 import { Operators } from "./Operators";
 import { BlockValues } from "./BlockValues";
@@ -9,25 +12,13 @@ import { Equals } from "./Equals";
 type СalculatorBlocksPropsType = {
   dragItemSource: Array<any>;
   dragItemDataDestination: Array<any>;
-};
-const getCalculatorPart = (item: any, isActive: boolean) => {
-  switch (item.name) {
-    case "display":
-      return <Display isActive={isActive} displayValue={0} />;
-    case "operators":
-      return <Operators isActive={isActive} />;
-    case "blockValues":
-      return <BlockValues isActive={isActive} setDisplayValue={() => {}} />;
-    case "equals":
-      return <Equals isActive={isActive} />;
-    default:
-      return <div></div>;
-  }
+  isConstructorVisible: boolean;
 };
 
 export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
   dragItemSource,
   dragItemDataDestination,
+  isConstructorVisible,
 }) => {
   const isDisable = (sourceName: string) => {
     const result = dragItemDataDestination.find(
@@ -35,7 +26,26 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
     );
     return !!result;
   };
-
+  const getCalculatorPart = (item: any, isActive: boolean) => {
+    switch (item.name) {
+      case "display":
+        return <Display isActive={isActive} displayValue={0} />;
+      case "operators":
+        return <Operators isActive={isActive} />;
+      case "blockValues":
+        return (
+          <BlockValues
+            isActive={isActive}
+            setDisplayValue={() => {}}
+            isConstructorVisible={isConstructorVisible}
+          />
+        );
+      case "equals":
+        return <Equals isActive={isActive} />;
+      default:
+        return <div></div>;
+    }
+  };
   return (
     <div className={styles.containerBlocks}>
       {dragItemSource.map((item, index) => {
@@ -57,7 +67,7 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
                 >
                   {getCalculatorPart(item, isDisabled)}
                 </div>
-                
+
                 {snapshot.isDragging && (
                   <>{getCalculatorPart(item, isDisabled)}</>
                 )}

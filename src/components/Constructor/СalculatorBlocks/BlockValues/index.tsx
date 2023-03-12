@@ -19,12 +19,12 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
         isActive ? styles.containerValuesOpacity : styles.containerValues
       }
     >
-      <div className={isConstructorVisible ? styles.values : styles.valuesPointer}>
+      <div className={styles.values}>
         {ValuesData.map((value: any) => {
           return (
             <div
               key={value.id}
-              className={styles.value}
+              className={isConstructorVisible ? styles.value : styles.valuePointer}
               onClick={(e) =>
                 !isConstructorVisible && dragItemDataDestination
                   ? setDisplayValue((prev) => Number('' + (prev || "") + value.value))
@@ -38,7 +38,7 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
       </div>
       <div className={styles.zeroAndComma}>
         <div
-          className={styles.zero}
+          className={isConstructorVisible ? styles.zero : styles.zeroPointer}
           onClick={(e) =>
             !isConstructorVisible && dragItemDataDestination
               ? setDisplayValue((prev) => Number('' + (prev || "") + 0))
@@ -48,7 +48,7 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
           0
         </div>
         <div
-          className={styles.comma}
+          className={isConstructorVisible ? styles.comma : styles.commaPointer}
           onClick={(e) =>
             !isConstructorVisible && dragItemDataDestination
               ? setDisplayValue((prev) => Number('' + (prev || "") + ''))
