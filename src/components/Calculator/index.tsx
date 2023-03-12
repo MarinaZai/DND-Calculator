@@ -8,7 +8,9 @@ type СalculatorBlocksPropsType = {
   isConstructorVisible: boolean;
   setIsConstructorVisible: (isConstructorVisible: boolean) => void;
   displayValue: number;
-  setDisplayValue: React.Dispatch<React.SetStateAction<number>>
+  setDisplayValue: React.Dispatch<React.SetStateAction<number>>;
+  saveData: (operator:string) => void;
+  doMath:()=>void
 };
 export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
   dragItemSource,
@@ -16,7 +18,9 @@ export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
   isConstructorVisible,
   setIsConstructorVisible,
   displayValue,
-  setDisplayValue
+  setDisplayValue,
+  saveData,
+  doMath
 }) => {
   return (
     <div className={styles.calculator}>
@@ -30,6 +34,8 @@ export const Calculator: React.FC<СalculatorBlocksPropsType> = ({
         isConstructorVisible={isConstructorVisible}
         displayValue={displayValue}
         setDisplayValue={setDisplayValue}
+        saveData={saveData}
+        doMath={doMath}
       />
     </div>
   );

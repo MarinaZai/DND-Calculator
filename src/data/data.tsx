@@ -2,10 +2,10 @@ import { RxCross2 } from "react-icons/rx";
 import { v4 as uuidv4 } from "uuid";
 
 export const OperatorsData = [
-  { id: uuidv4(), value: "/" },
-  { id: uuidv4(), value: <RxCross2 /> },
-  { id: uuidv4(), value: "-" },
-  { id: uuidv4(), value: "+" },
+  { id: uuidv4(), value: "/", operator: '/' },
+  { id: uuidv4(), value: <RxCross2 />, operator: '*' },
+  { id: uuidv4(), value: "-", operator: '-' },
+  { id: uuidv4(), value: "+", operator: '+' },
 ];
 export const ValuesData = [
   { id: uuidv4(), value: 1 },

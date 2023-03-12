@@ -41,7 +41,7 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
           className={styles.zero}
           onClick={(e) =>
             !isConstructorVisible && dragItemDataDestination
-              ? console.log(e.currentTarget)
+              ? setDisplayValue((prev) => Number('' + (prev || "") + 0))
               : console.log("ffff")
           }
         >
@@ -51,7 +51,7 @@ export const BlockValues: React.FC<BlockValuesPropsType> = ({
           className={styles.comma}
           onClick={(e) =>
             !isConstructorVisible && dragItemDataDestination
-              ? console.log(e.currentTarget)
+              ? setDisplayValue((prev) => Number('' + (prev || "") + ''))
               : console.log("ffff")
           }
         >

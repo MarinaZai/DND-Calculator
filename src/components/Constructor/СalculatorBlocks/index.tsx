@@ -15,11 +15,11 @@ const getCalculatorPart = (item: any, isActive: boolean) => {
     case "display":
       return <Display isActive={isActive} displayValue={0} />;
     case "operators":
-      return <Operators isActive={isActive}/>;
+      return <Operators isActive={isActive} />;
     case "blockValues":
       return <BlockValues isActive={isActive} setDisplayValue={() => {}} />;
     case "equals":
-      return <Equals isActive={isActive}/>;
+      return <Equals isActive={isActive} />;
     default:
       return <div></div>;
   }
@@ -57,7 +57,9 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
                 >
                   {getCalculatorPart(item, isDisabled)}
                 </div>
-                {snapshot.isDragging && <div>{getCalculatorPart(item, isDisabled)}</div>}
+                {snapshot.isDragging && (
+                  <div>{getCalculatorPart(item, isDisabled)}</div>
+                )}
               </div>
             )}
           </Draggable>

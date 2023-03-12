@@ -4,11 +4,13 @@ type EqualsPropsType = {
   isActive?: boolean;
   isConstructorVisible?: boolean;
   dragItemDataDestination?: Array<any>;
+  doMath?:()=>void
 };
 export const Equals: React.FC<EqualsPropsType> = ({
   isActive = false,
   isConstructorVisible,
   dragItemDataDestination,
+  doMath
 }) => {
   return (
     <div
@@ -19,8 +21,8 @@ export const Equals: React.FC<EqualsPropsType> = ({
       <button
         className={styles.equals}
         onClick={(e) =>
-          !isConstructorVisible && dragItemDataDestination
-            ? console.log(e.currentTarget)
+          !isConstructorVisible && dragItemDataDestination && doMath
+            ? doMath()
             : console.log("ffff")
         }
       >

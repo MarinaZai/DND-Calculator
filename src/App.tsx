@@ -12,7 +12,33 @@ function App() {
   );
   const [isConstructorVisible, setIsConstructorVisible] = useState(true);
   const [displayValue, setDisplayValue] = useState(0);
+  const [operator, setOperator] = useState("");
+  const [savedDisplayValue, setSavedDisplayValue] = useState(0);
+  
+  const saveData = (selectedOperator: string) => {
+    setSavedDisplayValue(displayValue);
+    setOperator(selectedOperator);
+    setDisplayValue(0);
+  };
 
+  const doMath = () => {
+    switch (operator) {
+      case "+":
+        setDisplayValue(savedDisplayValue + displayValue);
+        break;
+      case "-":
+        setDisplayValue(savedDisplayValue - displayValue);
+        break;
+      case "/":
+        setDisplayValue(savedDisplayValue / displayValue);
+        break;
+      case "*":
+        setDisplayValue(savedDisplayValue * displayValue);
+        break;
+      default:
+        break;
+    }
+  };
 
   const copy = (
     source: any,
@@ -58,6 +84,8 @@ function App() {
           setIsConstructorVisible={setIsConstructorVisible}
           displayValue={displayValue}
           setDisplayValue={setDisplayValue}
+          saveData={saveData}
+          doMath={doMath}
         />
       </DragDropContext>
     </div>
