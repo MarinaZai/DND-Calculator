@@ -23,10 +23,10 @@ export const ValuesData = [
   { id: uuidv4(), value: 9 },
 ];
 export const DragItemSource = [
-  { id: uuidv4(), component: <Display /> },
-  { id: uuidv4(), component: <Operators /> },
-  { id: uuidv4(), component: <BlockValues /> },
-  { id: uuidv4(), component: <Equals /> },
+  { id: uuidv4(), component: <Display />, name: "display"},
+  { id: uuidv4(), component: <Operators />, name: "operators" },
+  { id: uuidv4(), component: <BlockValues />, name: "blockValues"},
+  { id: uuidv4(), component: <Equals />, name: "equals" },
 ];
 
 export const DragItemDataDestination: typeof DragItemSource = [];

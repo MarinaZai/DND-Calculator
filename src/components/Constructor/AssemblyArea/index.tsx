@@ -1,16 +1,19 @@
 import React from "react";
-import { DragItemDataDestination } from "../../../data/data";
 import { EmptyArea } from "./EmptyArea";
 import styles from "./styles.module.css";
 import { Draggable } from "react-beautiful-dnd";
 
-export const AssemblyArea: React.FC = () => {
+type AssemblyAreaPropsType = {
+  dragItemDataDestination: Array<any>
+}
+
+export const AssemblyArea: React.FC<AssemblyAreaPropsType> = ({dragItemDataDestination}) => {
   return (
     <div className={styles.containerAssembly}>
-      {DragItemDataDestination.length === 0 ? (
+      {dragItemDataDestination.length === 0 ? (
         <EmptyArea />
       ) : (
-        DragItemDataDestination.map((item, index) => {
+        dragItemDataDestination.map((item, index) => {
           return (
             <Draggable
               draggableId={item.id.toString()}
