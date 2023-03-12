@@ -24,11 +24,11 @@ export const Operators: React.FC<OperatorsPropsType> = ({
           return (
             <div
               key={operator.id}
-              className={styles.operator}
+              className={isConstructorVisible ? styles.operator : styles.operatorPointer}
               onClick={(e) =>
                 !isConstructorVisible && dragItemDataDestination && saveData
                   ? saveData(operator.operator)
-                  : console.log("ffff")
+                  : ''
               }
             >
               {operator.value}

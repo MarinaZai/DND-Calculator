@@ -31,7 +31,12 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
       case "display":
         return <Display isActive={isActive} displayValue={0} />;
       case "operators":
-        return <Operators isActive={isActive} />;
+        return (
+          <Operators
+            isActive={isActive}
+            isConstructorVisible={isConstructorVisible}
+          />
+        );
       case "blockValues":
         return (
           <BlockValues
@@ -41,7 +46,12 @@ export const СalculatorBlocks: React.FC<СalculatorBlocksPropsType> = ({
           />
         );
       case "equals":
-        return <Equals isActive={isActive} />;
+        return (
+          <Equals
+            isActive={isActive}
+            isConstructorVisible={isConstructorVisible}
+          />
+        );
       default:
         return <div></div>;
     }

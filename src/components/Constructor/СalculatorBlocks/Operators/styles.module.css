@@ -40,3 +40,24 @@
   line-height: 15px;
   color: #000000;
 }
+.operatorPointer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #e2e3e5;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: #000000;
+  cursor: pointer; 
+}
+.operatorPointer:active {
+  border: 2px solid #5d5fef;
+}
