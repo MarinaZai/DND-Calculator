@@ -22,11 +22,9 @@ function App() {
   };
 
   const updateDisplayValue = (value: number) => {
-    console.log(displayValue)
     if (displayValue.toString().length > 11) {
-      return
+      return;
     } else {
-      console.log('dddd')
       setDisplayValue((prev) => Number("" + (prev || "") + value));
     }
   };
