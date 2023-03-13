@@ -10,9 +10,9 @@ type СalculatorBlocksPropsType = {
   displayValue: number;
   setDisplayValue: React.Dispatch<React.SetStateAction<number>>;
   saveData: (operator: string) => void;
-  doMath:()=>void
-  removeAddedItem: (index:any)=>void
-  updateDisplayValue:(value: number)=>void
+  doMath: () => void;
+  removeAddedItem: (index: any) => void;
+  updateDisplayValue: (value: number) => void;
 };
 export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
   dragItemSource,
@@ -23,7 +23,7 @@ export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
   saveData,
   doMath,
   removeAddedItem,
-  updateDisplayValue
+  updateDisplayValue,
 }) => {
   return (
     <div className={styles.containerConstructor}>
@@ -35,7 +35,6 @@ export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
                 dragItemSource={dragItemSource}
                 isConstructorVisible={isConstructorVisible}
                 dragItemDataDestination={dragItemDataDestination}
-             
               />
               {provided.placeholder}
             </div>
@@ -55,6 +54,7 @@ export const Constructor: React.FC<СalculatorBlocksPropsType> = ({
               removeAddedItem={removeAddedItem}
               updateDisplayValue={updateDisplayValue}
             />
+
             {provided.placeholder}
           </div>
         )}
